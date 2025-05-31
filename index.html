@@ -314,21 +314,29 @@
         }
 
         .project-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .project-img {
-            width: 90%;
+            width: 80%;
             height: 200px;
             object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
 
         .project-info {
@@ -788,74 +796,62 @@
         </div>
     </section>
 
-     <section id="projects" class="fade-in">
+    <section id="projects" class="fade-in">
         <div class="container">
             <div class="section-title">
-                <h2>Projets GitHub</h2>
+                <h2>Projets Data Science</h2>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <!-- Chemin d'image corrigé -->
-                    <img src="images/analyse.jpg" alt="Analyse Budgétaire" class="project-img">
+                <div class="project-card">                    
                     <div class="project-info">
-                        <h3 class="project-title">Analyse d'Incidence Budgétaire</h3>
-                        <p>Projet d'analyse et de modélisation des effets redistributifs de la politique fiscale en Mauritanie.</p>
+                        <h3 class="project-title">Système de calcul et de visualisation de l'INPC</h3>
+                        <p>Solution complète pour le calcul automatisé de l'Indice National des Prix à la Consommation avec modules de visualisation.</p>
+                        <p><strong>Applications :</strong> Suivi de l'inflation, analyse sectorielle, support aux décisions économiques</p>
                         <div class="project-links">
-                            <!-- Lien GitHub corrigé -->
-                            <a href="https://github.com/The-55/analyse-budgetaire" class="project-link" target="_blank">
+                            <a href="https://github.com/The-55/ansade_inpc" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i> Code
                             </a>
                             <a href="#" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Demo
+                                <i class="fas fa-chart-bar"></i> Dashboard
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <!-- Chemin d'image corrigé -->
-                    <img src="images/mef-logo.png" alt="Système de Prévision" class="project-img">
+                <div class="project-card">                    
                     <div class="project-info">
-                        <h3 class="project-title">Système de Prévision Économique</h3>
-                        <p>Outil de centralisation et d'automatisation des données pour la prévision économique.</p>
+                        <h3 class="project-title">Système de centralisation et de prévision économique</h3>
+                        <p>Plateforme intégrée pour l'agrégation et l'analyse des indicateurs macroéconomiques avec modèles prédictifs.</p>
+                        <p><strong>Technologies clés :</strong> Java, Angular, MongoDB, Modèles ARIMA, Prophet</p>
                         <div class="project-links">
-                            <!-- Lien GitHub corrigé -->
-                            <a href="https://github.com/The-55/prevision-economique" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <!-- Image remplacée par une image locale -->
-                    <img src="images/climat.jpg" alt="Changement Climatique" class="project-img">
-                    <div class="project-info">
-                        <h3 class="project-title">Analyse des Impacts Climatiques</h3>
-                        <p>Outils de collecte et d'analyse des données sur les stratégies d'adaptation des agropasteurs.</p>
-                        <div class="project-links">
-                            <!-- Lien GitHub corrigé -->
-                            <a href="https://github.com/The-55/impacts-climatiques" class="project-link" target="_blank">
+                            <a href="https://github.com/The-55/plateforme" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i> Code
                             </a>
                             <a href="#" class="project-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> Rapport
+                                <i class="fas fa-project-diagram"></i> Architecture
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <!-- Image remplacée par une image locale -->
-                    <img src="images/powerbi.jpg" alt="Visualisation Données" class="project-img">
+                <div class="project-card">                    
                     <div class="project-info">
-                        <h3 class="project-title">Tableaux de Bord POWER BI</h3>
-                        <p>Création de tableaux de bord interactifs pour la visualisation des indicateurs économiques.</p>
+                        <h3 class="project-title">Outil de simulation CEQ pour la Banque Mondiale</h3>
+                        <p>Module d'analyse des impacts redistributifs des politiques fiscales selon la méthodologie Commitment to Equity.</p>
+                        <p><strong>Fonctionnalités :</strong> Simulations fiscales, analyses d'incidence, rapports automatisés</p>
                         <div class="project-links">
-                            <!-- Lien GitHub corrigé -->
                             <a href="https://github.com/The-55/powerbi-dashboards" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i> Code
                             </a>
+                            <a href="https://documents.banquemondiale.org/fr/publication/documents-reports/documentdetail/099062123061515850/p1682920db3e22020899d0b0c6e4755d22" class="project-link" target="_blank">
+                                <i class="fas fa-file-alt"></i> Documentation
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/The-55" class="btn" target="_blank" style="background-color: #3498db;">
+                    <i class="fab fa-github"></i> Voir tous mes projets GitHub
+                </a>
             </div>
         </div>
     </section>
@@ -980,7 +976,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Abou Moctar DIALLO. Tous droits réservés.</p>
+            <p>&copy; 2025 Abou Moctar DIALLO. Tous droits réservés.</p>
             <p>CV en ligne hébergé sur GitHub Pages</p>
         </div>
     </footer>
