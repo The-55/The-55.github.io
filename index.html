@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abou Moctar DIALLO - CV en ligne</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Abou Moctar DIALLO - Statisticien-Economiste | Data Scientist</title>
+    <meta name="description" content="CV de Abou Moctar DIALLO - Statisticien-Economiste et Data Scientist spécialisé en analyse de données pour la finance et l'économie en Mauritanie">
+    <meta name="keywords" content="Data Scientist, Statisticien, Economiste, Mauritanie, Analyse de données, Machine Learning">
+    <meta name="author" content="Abou Moctar DIALLO">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="CV | Abou Moctar DIALLO - Data Scientist">
+    <meta property="og:description" content="Statisticien-Economiste spécialisé en analyse de données">
+    <meta property="og:image" content="https://example.com/images/abou.png">
+    <meta property="og:url" content="https://example.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preload Resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -27,6 +43,12 @@
             background-color: #f5f7fa;
             color: var(--text-color);
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
         }
 
         .container {
@@ -35,12 +57,35 @@
             padding: 0 20px;
         }
 
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: #eee;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #3498db;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 2rem 0;
             position: relative;
             overflow: hidden;
+        }
+
+        .dark-mode header {
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
         }
 
         .header-content {
@@ -60,6 +105,11 @@
             border: 5px solid white;
             margin-bottom: 1.5rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
         h1 {
@@ -102,12 +152,17 @@
             background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIj48L3JlY3Q+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIj48L3JlY3Q+PC9zdmc+');
         }
 
+        /* Navigation */
         nav {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+        }
+
+        .dark-mode nav {
+            background-color: #2d2d2d;
         }
 
         .nav-container {
@@ -121,6 +176,10 @@
             font-weight: 700;
             color: var(--primary-color);
             font-size: 1.5rem;
+        }
+
+        .dark-mode .logo {
+            color: #f0f0f0;
         }
 
         .nav-links {
@@ -139,6 +198,10 @@
             transition: color 0.3s;
             position: relative;
             padding: 0.5rem 0;
+        }
+
+        .dark-mode .nav-links a {
+            color: #f0f0f0;
         }
 
         .nav-links a:hover {
@@ -163,8 +226,14 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            color: var(--text-color);
         }
 
+        .dark-mode .hamburger {
+            color: #f0f0f0;
+        }
+
+        /* Sections */
         section {
             padding: 4rem 0;
         }
@@ -182,6 +251,10 @@
             padding-bottom: 0.5rem;
         }
 
+        .dark-mode .section-title h2 {
+            color: #f0f0f0;
+        }
+
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -193,6 +266,7 @@
             background-color: var(--secondary-color);
         }
 
+        /* About Section */
         .about-content {
             display: flex;
             flex-wrap: wrap;
@@ -207,6 +281,10 @@
 
         .about-text p {
             margin-bottom: 1rem;
+        }
+
+        .dark-mode .about-text p {
+            color: #e0e0e0;
         }
 
         .skills {
@@ -231,13 +309,23 @@
             overflow: hidden;
         }
 
+        .dark-mode .skill-bar {
+            background-color: #444;
+        }
+
         .skill-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
             border-radius: 5px;
-            transition: width 1s ease-in-out;
+            transition: width 1.5s ease-out, background-color 0.5s;
+            width: 0;
         }
 
+        .skill-bar:hover .skill-progress {
+            background: linear-gradient(90deg, #e74c3c, #3498db);
+        }
+
+        /* Timeline */
         .timeline {
             position: relative;
             max-width: 1200px;
@@ -274,6 +362,10 @@
             z-index: 1;
         }
 
+        .dark-mode .timeline-item::after {
+            background-color: #2d2d2d;
+        }
+
         .left {
             left: 0;
         }
@@ -297,6 +389,11 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
+        .dark-mode .timeline-content {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+
         .timeline-date {
             color: var(--secondary-color);
             font-weight: bold;
@@ -307,6 +404,11 @@
             color: var(--primary-color);
         }
 
+        .dark-mode .timeline-title {
+            color: #f0f0f0;
+        }
+
+        /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -320,6 +422,11 @@
             margin-bottom: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+        }
+
+        .dark-mode .project-card {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
         }
 
         .project-card:hover {
@@ -348,6 +455,10 @@
             color: var(--primary-color);
         }
 
+        .dark-mode .project-title {
+            color: #f0f0f0;
+        }
+
         .project-links {
             display: flex;
             gap: 1rem;
@@ -369,6 +480,200 @@
             background-color: var(--primary-color);
         }
 
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .dark-mode .stats-section {
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+        }
+
+        /* Interests Section */
+        .interests-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 150px;
+            transition: transform 0.3s;
+        }
+
+        .dark-mode .interest-card {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .interest-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .interest-title {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .dark-mode .interest-title {
+            color: #f0f0f0;
+        }
+
+        .interest-description {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .dark-mode .interest-description {
+            color: #b0b0b0;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .testimonial-card {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .testimonial-name {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .dark-mode .testimonial-name {
+            color: #f0f0f0;
+        }
+
+        .testimonial-position {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+        }
+
+        .dark-mode .testimonial-text {
+            color: #e0e0e0;
+        }
+
+        /* Blog Section */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .dark-mode .blog-card {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-title {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .dark-mode .blog-title {
+            color: #f0f0f0;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Contact Form */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -376,6 +681,11 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .contact-form {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
         }
 
         .form-group {
@@ -388,12 +698,24 @@
             font-weight: 500;
         }
 
+        .dark-mode .form-group label {
+            color: #f0f0f0;
+        }
+
         .form-control {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
+            background-color: white;
+            color: var(--text-color);
+        }
+
+        .dark-mode .form-control {
+            background-color: #3d3d3d;
+            border-color: #555;
+            color: #f0f0f0;
         }
 
         textarea.form-control {
@@ -417,6 +739,7 @@
             background-color: var(--primary-color);
         }
 
+        /* Social Links */
         .social-links {
             display: flex;
             justify-content: center;
@@ -441,14 +764,7 @@
             transform: translateY(-3px);
         }
 
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
-        }
-
+        /* Language Skills */
         .language-skills {
             display: flex;
             flex-wrap: wrap;
@@ -466,6 +782,11 @@
             transition: transform 0.3s;
         }
 
+        .dark-mode .language-card {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+
         .language-card:hover {
             transform: translateY(-5px);
         }
@@ -476,11 +797,105 @@
             color: var(--primary-color);
         }
 
+        .dark-mode .language-name {
+            color: #f0f0f0;
+        }
+
         .language-level {
             color: var(--secondary-color);
             font-weight: 500;
         }
 
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .dark-mode footer {
+            background-color: #1a1a1a;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--secondary-color);
+            color: white;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        #backToTop:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Theme Toggle Button */
+        #themeToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--secondary-color);
+            color: white;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        #themeToggle:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* GitHub corner */
+        .github-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 0;
+            z-index: 10;
+        }
+
+        .github-corner svg {
+            fill: var(--primary-color);
+            color: white;
+        }
+
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out;
+        }
+
+        /* Download PDF Button */
+        .download-pdf {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #10669f;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .download-pdf:hover {
+            background-color: #178fdb;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -492,6 +907,10 @@
                 flex-direction: column;
                 padding: 1rem 0;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .dark-mode .nav-links {
+                background-color: #2d2d2d;
             }
 
             .nav-links.active {
@@ -528,9 +947,39 @@
             .right {
                 left: 0;
             }
+
+            .about-content {
+                flex-direction: column;
+            }
         }
 
-        /* Animation classes */
+        @media (max-width: 480px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .interest-card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -540,39 +989,6 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* GitHub corner ribbon */
-        .github-corner {
-            position: absolute;
-            top: 0;
-            right: 0;
-            border: 0;
-            z-index: 10;
-        }
-
-        .github-corner svg {
-            fill: var(--primary-color);
-            color: white;
-        }
-
-        .github-corner:hover .octo-arm {
-            animation: octocat-wave 560ms ease-in-out;
-        }
-
-        .download-pdf {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.75rem 1.5rem;
-            background-color: #10669f;
-            color: white;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        .download-pdf:hover {
-            background-color: #10669f;
         }
 
         @keyframes octocat-wave {
@@ -592,6 +1008,11 @@
     </style>
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
     <!-- GitHub corner ribbon -->
     <a href="https://github.com/The-55" class="github-corner" aria-label="View source on GitHub">
         <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
@@ -604,16 +1025,14 @@
     <header>
         <div class="header-bg"></div>
         <div class="container header-content">
-            <!-- Chemin d'image corrigé -->
-            <img src="images/abou.png" alt="Abou Moctar DIALLO" class="profile-img">
+            <img src="images/abou.png" alt="Abou Moctar DIALLO" class="profile-img" loading="lazy">
             <h1>Abou Moctar DIALLO</h1>
             <p class="title">Statisticien-Economiste | Data Scientist</p>
-            <!-- Bouton PDF ajouté -->
             
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>abounoctardiallo@gmail.com</span>
+                    <span>aboumoctardiallo@gmail.com</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
@@ -644,7 +1063,8 @@
                 <li><a href="#about">À Propos</a></li>
                 <li><a href="#education">Formation</a></li>
                 <li><a href="#experience">Expérience</a></li>
-                <li><a href="#projects">Projets GitHub</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#stats">Stats</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#interests">Centres d'intérêt</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -800,7 +1220,7 @@
     <section id="projects" class="fade-in">
         <div class="container">
             <div class="section-title">
-                <h2>Projets Data Science</h2>
+                <h2>Réalisations majeures</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card">                    
@@ -813,7 +1233,7 @@
                                 <i class="fab fa-github"></i> Code
                             </a>
                             <a href="#" class="project-link" target="_blank">
-                                <i class="fas fa-chart-bar"></i> Dashboard
+                                <i class="fas fa-chart-bar"></i> Architecture
                             </a>
                         </div>
                     </div>
@@ -822,7 +1242,7 @@
                     <div class="project-info">
                         <h3 class="project-title">Système de centralisation et de prévision économique</h3>
                         <p>Plateforme intégrée pour l'agrégation et l'analyse des indicateurs macroéconomiques avec modèles prédictifs.</p>
-                        <p><strong>Technologies clés :</strong> Java, Angular, MongoDB, Modèles ARIMA, Prophet</p>
+                        <p><strong>Technologies clés :</strong> Java, Angular, Mongo DB, modèles ARIMA, Prophet</p>
                         <div class="project-links">
                             <a href="https://github.com/The-55/plateforme" class="project-link" target="_blank">
                                 <i class="fab fa-github"></i> Code
@@ -849,10 +1269,28 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://github.com/The-55" class="btn" target="_blank" style="background-color: #3498db;">
-                    <i class="fab fa-github"></i> Voir tous mes projets GitHub
-                </a>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-section fade-in">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Projets réalisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Institutions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Langues maîtrisées</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Engagement</div>
+                </div>
             </div>
         </div>
     </section>
@@ -939,68 +1377,61 @@
             </div>
         </div>
     </section>
+
     <section id="interests" class="fade-in">
         <div class="container">
             <div class="section-title">
                 <h2>Centres d'intérêt</h2>
             </div>
-            <div class="interests-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
-                <!-- Intérêt 1 - Lecture -->
-                <div class="interest-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; width: 150px; transition: transform 0.3s;">
-                    <div style="font-size: 2rem; color: #3498db; margin-bottom: 0.5rem;">
+            <div class="interests-container">
+                <div class="interest-card">
+                    <div class="interest-icon">
                         <i class="fas fa-book-open"></i>
                     </div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.1rem;">Lecture</h3>
-                    <p style="font-size: 0.8rem; color: #7f8c8d;">Économie, Data Science</p>
+                    <h3 class="interest-title">Lecture</h3>
+                    <p class="interest-description">Économie, Data Science</p>
                 </div>
-    
-                <!-- Intérêt 2 - Veille techno -->
-                <div class="interest-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; width: 150px; transition: transform 0.3s;">
-                    <div style="font-size: 2rem; color: #3498db; margin-bottom: 0.5rem;">
+                <div class="interest-card">
+                    <div class="interest-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.1rem;">Veille techno</h3>
-                    <p style="font-size: 0.8rem; color: #7f8c8d;">Innovations IA & Big Data</p>
+                    <h3 class="interest-title">Veille techno</h3>
+                    <p class="interest-description">Innovations IA & Big Data</p>
                 </div>
-    
-                <!-- Intérêt 3 - Économie -->
-                <div class="interest-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; width: 150px; transition: transform 0.3s;">
-                    <div style="font-size: 2rem; color: #3498db; margin-bottom: 0.5rem;">
+                <div class="interest-card">
+                    <div class="interest-icon">
                         <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.1rem;">Économie</h3>
-                    <p style="font-size: 0.8rem; color: #7f8c8d;">Politiques économiques</p>
+                    <h3 class="interest-title">Économie</h3>
+                    <p class="interest-description">Politiques économiques</p>
                 </div>
-    
-                <!-- Intérêt 4 - Football -->
-                <div class="interest-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; width: 150px; transition: transform 0.3s;">
-                    <div style="font-size: 2rem; color: #3498db; margin-bottom: 0.5rem;">
+                <div class="interest-card">
+                    <div class="interest-icon">
                         <i class="fas fa-futbol"></i>
                     </div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.1rem;">Football</h3>
-                    <p style="font-size: 0.8rem; color: #7f8c8d;">Pratique amateur</p>
+                    <h3 class="interest-title">Football</h3>
+                    <p class="interest-description">Pratique amateur</p>
                 </div>
-    
-                <!-- NOUVEAU Intérêt 5 - Voyages -->
-                <div class="interest-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; width: 150px; transition: transform 0.3s;">
-                    <div style="font-size: 2rem; color: #3498db; margin-bottom: 0.5rem;">
+                <div class="interest-card">
+                    <div class="interest-icon">
                         <i class="fas fa-globe-africa"></i>
                     </div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.1rem;">Voyages</h3>
-                    <p style="font-size: 0.8rem; color: #7f8c8d;">Découverte culturelle</p>
+                    <h3 class="interest-title">Voyages</h3>
+                    <p class="interest-description">Découverte culturelle</p>
                 </div>
-    
-                <!-- NOUVEAU Intérêt 6 - Bénévolat -->
-                <div class="interest-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; width: 150px; transition: transform 0.3s;">
-                    <div style="font-size: 2rem; color: #3498db; margin-bottom: 0.5rem;">
+                <div class="interest-card">
+                    <div class="interest-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
-                    <h3 style="color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.1rem;">Bénévolat</h3>
-                    <p style="font-size: 0.8rem; color: #7f8c8d;">Initiatives locales</p>
+                    <h3 class="interest-title">Bénévolat</h3>
+                    <p class="interest-description">Initiatives locales</p>
                 </div>
             </div>
         </div>
     </section>
+
+   
+
 
     <section id="contact" class="fade-in">
         <div class="container">
@@ -1030,7 +1461,7 @@
             </div>
             <div class="social-links">
                 <a href="https://linkedin.com/in/votreprofil" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/votreusername" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/The-55" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://twitter.com/votreprofil" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="mailto:abounoctardiallo@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
             </div>
@@ -1043,6 +1474,16 @@
             <p>CV en ligne hébergé sur GitHub Pages</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
 
     <script>
         // Mobile menu toggle
@@ -1112,6 +1553,37 @@
 
         // Check on scroll
         window.addEventListener('scroll', animateSkillBars);
+
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.innerHTML = document.body.classList.contains('dark-mode') 
+                ? '<i class="fas fa-sun"></i>' 
+                : '<i class="fas fa-moon"></i>';
+        });
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.progress-bar').style.width = scrolled + '%';
+        });
     </script>
 </body>
 </html>
